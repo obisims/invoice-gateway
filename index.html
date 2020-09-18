@@ -31,12 +31,24 @@
 $( document ).ready(function() {
   var reff_invoiceNum = getParameterByName("inv") //?inv=thx-1138 = 'thx-1138'
 var reff_priceId = getParameterByName("priceId")
+var reff_price = getParameterByName("price")
+var reff_clientName = getParameterByName("clientName")
+//var reff_priceId = getParameterByName("priceId")
+
+
 console.log('Invoice num is',reff_invoiceNum);
   $(".invoiceName").text(reff_invoiceNum.toUpperCase())
+  $(".clientName").text(reff_clientName)
+  
   $("#button_fullPay").attr('data-price-id',reff_priceId)// button_fullPay, button_depositPay
-  $("#button_fullPay").text('Pay Invoice')
-  $("#button_depositPay").attr('data-price-id',reff_priceId)
-  $("#button_depositPay").text('Pay Deposit')
+  if(reff_price){
+    $("#button_fullPay").text('Pay $'+reff_price)
+  }else{
+    $("#button_fullPay").text('Pay Invoice')
+  }
+  
+  /*$("#button_depositPay").attr('data-price-id',reff_priceId)
+  $("#button_depositPay").text('Pay Deposit')*/
 var price = ''
 var data = ''
 var data_a;
@@ -76,22 +88,24 @@ console.log('data:',data)
       -->
         <div class="sr-container">
           <section class="container">
-            <h1 class="invoiceName">THX-666</h1>
+            <h1 class="invoiceName"></h1>
+            <h5 class="clientName">Bodega Underground</h5>
             <button
               id="button_fullPay"
               data-checkout-mode="payment"
-              
-            ><!-- data-price-id="price_1HSeabEB9Gfp1i8Q2LXEl78T" -->
+            >
+            <!-- data-price-id="price_1HSeabEB9Gfp1i8Q2LXEl78T" -->
               loading...<!--Pay $100.00 due-->
             </button>
-            <button
+            
+           <!--<button
             id="button_depositPay"
               data-checkout-mode="payment"
               
-            ><!-- data-price-id="price_1HSeabEB9Gfp1i8Q2LXEl78T" -->
-            loading...<!--Pay $50.00 deposit-->
+            > data-price-id="price_1HSeabEB9Gfp1i8Q2LXEl78T" 
+            loading...Pay $50.00 deposit
             </button>
-    
+            -->
           </section>
           
         </div>

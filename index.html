@@ -125,7 +125,10 @@ console.log('Invoice num is',reff_invoiceNum);
   if(!reff_invoiceNum||!reff_priceId){
     $("button#button_fullPay").hide()
     $(".invoiceName").html(`Your link is busted dude!`).css({ 'color': 'white', 'font-size': '175%' });
-    $('html').css("background-image", "url("+bgs.keyboard+")"); 
+   // $('html').css("background-image", "url("+bgs.keyboard+")"); 
+    $('html').css("background", `url(`+randomProperty(bgs.bad)+`) no-repeat center center fixed`)
+    $('html').css("background-size", "cover");  
+
     $(".clientName").text('you might need to talk to me...')   
     $('.banner').hide()
   }else{

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Stripe Checkout Sample</title>
+    <title>obisims invoice gateway</title>
     <meta name="description" content="A demo of Stripe client-only Checkout" />
 
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
@@ -20,35 +20,22 @@
         </header>
         <div class="sr-container">
           <section class="container">
-            <h1>One-time Donation</h1>
+            <h1>THX-666</h1>
             <button
               data-checkout-mode="payment"
-              data-price-id="sku_GU4JYXyvvRb2sX"
+              data-price-id="price_1HSeabEB9Gfp1i8Q2LXEl78T"
             >
-              Donate $5.00 once
+              Pay $100.00 due
             </button>
             <button
               data-checkout-mode="payment"
-              data-price-id="sku_GU4KO8nfdg8G2Z"
+              data-price-id="price_1HSeabEB9Gfp1i8Q2LXEl78T"
             >
-              Donate $15.00 once
+              Pay $50.00 deposit
             </button>
-            <button
-              data-checkout-mode="payment"
-              data-price-id="sku_GU4LB0wBViiYsm"
-            >
-              Donate $50.00 once
-            </button>
+    
           </section>
-          <section class="container">
-            <h1>Recurring Donation</h1>
-            <button
-              data-checkout-mode="subscription"
-              data-price-id="plan_GU4MXg0k0Uv1S6"
-            >
-              Donate $20.00 per month
-            </button>
-          </section>
+          
         </div>
         <div id="error-message"></div>
       </div>
@@ -56,27 +43,21 @@
     <div class="banner">
       <span>
         This is a
-        <a href="https://github.com/stripe-samples"> Stripe Sample </a> on how
-        to use Stripe Checkout on GitHub Pages.
+        <a href="https://github.com/stripe-samples"> stripe </a> gateway for
         <a
-          href="https://github.com/stripe-samples/github-pages-stripe-checkout"
+          href="https://obisims.com"
         >
-          View code on GitHub.
+          obisims.com
         </a>
       </span>
     </div>
 
     <script>
       // Replace with your own publishable key: https://dashboard.stripe.com/test/apikeys
-      var PUBLISHABLE_KEY = 'pk_test_Tr8olTkdFnnJVywwhNPHwnHK00HkHV4tnP';
+      var PUBLISHABLE_KEY = 'pk_live_518wo3qEB9Gfp1i8QifDcWocfocfuhEtZr6Bospg60FsnR37S6Lwt69I0EZ6hqsvul8POOgnNURETpwQOlVM3qdkO00WTqwMzVB'//'pk_test_518wo3qEB9Gfp1i8QucJ9mmE6GNat0hHIUoJD4oZJBfIuZwvhBYXLFaSJRMPwJTXGZvRWAjcKBqWKGbN7aS9ZKipg00SGxVEzsL'//'pk_test_Tr8olTkdFnnJVywwhNPHwnHK00HkHV4tnP';
       // Replace with the domain you want your users to be redirected back to after payment
-      var DOMAIN = location.href.replace(/[^/]*$/, '');
+      var DOMAIN = "https://obisims.com/"; //location.href.replace(/[^/]*$/, '');
 
-      if (PUBLISHABLE_KEY === 'pk_test_Tr8olTkdFnnJVywwhNPHwnHK00HkHV4tnP') {
-        console.log(
-          'Replace the hardcoded publishable key with your own publishable key: https://dashboard.stripe.com/test/apikeys'
-        );
-      }
 
       var stripe = Stripe(PUBLISHABLE_KEY);
 

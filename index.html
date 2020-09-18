@@ -26,11 +26,13 @@
       return decodeURIComponent(results[2].replace(/\+/g, ' '));
   }
   //?inv=thx-1138
-  let bgs = {
-      trump: 'https://i1.wp.com/media2.giphy.com/media/3oz8xrAQweeLfVIkzC/giphy.gif?zoom=2',
-      keyboard: 'https://38.media.tumblr.com/546c0cd48d71f210f9b67a389003790d/tumblr_neq0yw9rMA1tm16jjo1_500.gif',
+  let bgs = new Object()
+   bgs.base = {
+   //   trump: 'https://i1.wp.com/media2.giphy.com/media/3oz8xrAQweeLfVIkzC/giphy.gif?zoom=2',
+  //   keyboard: 'https://38.media.tumblr.com/546c0cd48d71f210f9b67a389003790d/tumblr_neq0yw9rMA1tm16jjo1_500.gif',
       abstract_circles:'https://cdn.dribbble.com/users/616823/screenshots/9121296/glowspin.gif',
-      something:'https://i.gifer.com/C2Az.gif'
+      something:'https://i.gifer.com/C2Az.gif',
+    //  abstract_circles:'https://cdn.dribbble.com/users/616823/screenshots/9121296/glowspin.gif',
       
     }
   bgs.good = {
@@ -53,8 +55,13 @@ spikeBad:'https://i.gifer.com/3SGx.gif',
 bebopLaugh:'https://i.gifer.com/14ji.gif',
 killyou:'https://i.gifer.com/K6D3.gif',
 white:'https://i.gifer.com/R9e5.gif',
-eye:'https://i.gifer.com/6s4K.gif'
+eye:'https://i.gifer.com/6s4K.gif',
+handEye:'https://i.gifer.com/XrTp.gif',
+systemMalf:'https://i.gifer.com/1Wg8.gif',
+clas:'https://i.gifer.com/j30.gif',
+fuckk:'https://i.gifer.com/410L.gif',
   }
+
   bgs.aesth={
 strring:'https://i.gifer.com/380e.gif',
 driving:'https://i.gifer.com/EaH.gif',
@@ -73,11 +80,30 @@ shooter:'https://i.gifer.com/YUXs.gif',
 flyer:'https://i.gifer.com/9vCi.gif',
 spiral:'https://i.gifer.com/YmYu.gif'
   }
+  // spike:'https://i.gifer.com/14jd.gif',
+bgs.proffAesth={
+  abstract_circles:'https://cdn.dribbble.com/users/616823/screenshots/9121296/glowspin.gif',
+  cityNight:'https://i.gifer.com/7Tzm.gif',
+  spiral:'https://i.gifer.com/YmYu.gif',
+  smoke:'https://i.gifer.com/8YuB.gif',
+  daria:'https://i.gifer.com/1B4C.gif',
+  bass:'https://i.gifer.com/QTbQ.gif',
+  whiteonRedBlotch:'https://i.gifer.com/1ZwF.gif',
+  rainingPixel:'https://i.gifer.com/33HI.gif',
+  underbridge:'https://i.gifer.com/1zfb.gif',
+  balconyPixel:'https://i.gifer.com/6ElP.gif',
+  catNightWindow:'https://i.gifer.com/HST2.gif',
+}
+
   bgs.punk={
 glitchskull:'https://i.gifer.com/BPEw.gif',
 cornermosh:'https://i.gifer.com/80bt.gif',
 club:'https://i.gifer.com/UJoV.gif',
-eye:'https://i.gifer.com/6s4K.gif'
+eye:'https://i.gifer.com/6s4K.gif',
+clash:'https://i.gifer.com/j30.gif',
+daria:'https://i.gifer.com/1B4C.gif',
+bass:'https://i.gifer.com/QTbQ.gif',
+fuckk:'https://i.gifer.com/410L.gif',
   }
   function pickRandomProperty(obj) {
     var result;
@@ -133,9 +159,9 @@ console.log('Invoice num is',reff_invoiceNum);
     $('.banner').hide()
   }else{
 
-    var bgImage = randomProperty(bgs.aesth)//bgs.good
-    console.log('bgImage',bgImage)
-    $('html').css("background", `url(`+bgImage+`) no-repeat center center fixed`)
+  //  var bgImage = //bgs.good
+  //  console.log('bgImage',bgImage)
+    $('html').css("background", `url(`+randomProperty(bgs.proffAesth)+`) no-repeat center center fixed`)
     $('html').css("background-size", "cover");  
   /*  $('.container').css("backdrop-filter", "blur(10px)");*/
   }

@@ -37,6 +37,28 @@ console.log('Invoice num is',reff_invoiceNum);
   $("#button_fullPay").text('Pay Invoice')
   $("#button_depositPay").attr('data-price-id',reff_priceId)
   $("#button_depositPay").text('Pay Deposit')
+var price = ''
+var data = ''
+var data_a;
+//console.log(stripe)
+console.log('gettingData')
+
+$.getJSON('https://api.stripe.com/v1/prices/price_1HSm1JEB9Gfp1i8QW0h8Iw3w', function(data) {
+      data_a = data
+      console.log('data_a',data_a)
+       /* var text = `Date: ${data.date}<br>
+                    Time: ${data.time}<br>
+                    Unix time: ${data.milliseconds_since_epoch}`
+        */            
+        
+        //$(".mypanel").html(text);
+    });
+
+  /*var price = stripe.prices.retrieve(
+  reff_priceId //'price_1HSlhGEB9Gfp1i8Qe3ZofJlk'
+);*/
+console.log('price:',price)
+console.log('data:',data)
 
 });
 
@@ -92,7 +114,7 @@ console.log('Invoice num is',reff_invoiceNum);
       // Replace with your own publishable key: https://dashboard.stripe.com/test/apikeys
       var PUBLISHABLE_KEY = 'pk_live_518wo3qEB9Gfp1i8QifDcWocfocfuhEtZr6Bospg60FsnR37S6Lwt69I0EZ6hqsvul8POOgnNURETpwQOlVM3qdkO00WTqwMzVB'//'pk_test_518wo3qEB9Gfp1i8QucJ9mmE6GNat0hHIUoJD4oZJBfIuZwvhBYXLFaSJRMPwJTXGZvRWAjcKBqWKGbN7aS9ZKipg00SGxVEzsL'//'pk_test_Tr8olTkdFnnJVywwhNPHwnHK00HkHV4tnP';
       // Replace with the domain you want your users to be redirected back to after payment
-      var DOMAIN = "https://obisims.github.io/invoice-gateway/"//"https://obisims.com/"; //location.href.replace(/[^/]*$/, '');
+      var DOMAIN = "https://invoice.obisims.com/"//"https://obisims.com/"; //location.href.replace(/[^/]*$/, '');
 
 
       var stripe = Stripe(PUBLISHABLE_KEY);

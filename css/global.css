@@ -715,7 +715,7 @@ html{
    .payIcons{
     text-align: center;
    }
-   .payIcons,button,button.payButton,.invoiceName,.clientName,.banner,.tippy-content{
+   #mainLogo_Line,.payIcons,button,button.payButton,.invoiceName,.clientName,.banner,.tippy-content{
  
     -webkit-touch-callout: none !important;
     -webkit-user-select:none !important;
@@ -727,11 +727,11 @@ html{
     text-decoration:none;
   }
   
-  .payIcons:active,button:active,button.payButton:active,.invoiceName:active,.clientName:active,.banner:active,.tippy-content:active,.payIcons:focus,button:focus,button.payButton:focus,.invoiceName:focus,.clientName:focus,.banner:focus,.tippy-content:focus,{
+  .payIcons:active,button:active,button.payButton:active,.invoiceName:active,.clientName:active,.banner:active,.tippy-content:active,.payIcons:focus,button:focus,button.payButton:focus,.invoiceName:focus,.clientName:focus,.banner:focus,.tippy-content:focus{
     outline: none !important;
-    webkit-box-shadow: none;
+    -webkit-box-shadow: none;
     text-decoration:none;
-   box-shadow: none !important;
+   box-shadow: none;
   }
 
 

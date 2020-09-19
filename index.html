@@ -301,9 +301,17 @@ $( document ).ready(function() {
  reff_priceId = getParameterByName("priceId")
  reff_price = parseFloat(getParameterByName("price"))
  reff_clientName = getParameterByName("clientName")
+ reff_paymentCancelled = !(!getParameterByName("payment"))
+ reff_ = window.location.search.substring(1)
+ console.log('reff_:',reff_)
+ console.log('reff_invoiceNum:',reff_invoiceNum)
+ console.log('reff_priceId:',reff_priceId)
+ console.log('reff_price:',reff_price)
+ console.log('reff_paymentCancelled:',reff_paymentCancelled)
+ 
 //var reff_priceId = getParameterByName("priceId")
 
-console.log('Invoice num is',reff_invoiceNum);
+//console.log('Invoice num is',reff_invoiceNum);
  
   if(reff_priceId){
     if(reff_invoiceNum)$(".invoiceName").text(reff_invoiceNum.toUpperCase())
@@ -344,7 +352,13 @@ console.log('Invoice num is',reff_invoiceNum);
   //  console.log('bgImage',bgImage)
     //$('html').css("background", `url(`+randomProperty(bgs.lineart)+`) no-repeat center center fixed`)
     //$('html').css("background-size", "cover");  
-    $('#duotone').css("background", `url("${randomProperty(bgs.lineart)}") no-repeat center center fixed`)
+    
+    if(reff_paymentCancelled){
+      var selectBGs = bgs.good ||bgs.punk ||bgs.good||bgs.bad //incase i delete a bg link obj and forget... which i will
+      $('#duotone').css("background", `url("${randomProperty(selectBGs)}") no-repeat center center fixed`)
+    }else{
+      $('#duotone').css("background", `url("${randomProperty(bgs.lineart)}") no-repeat center center fixed`)
+    }
     $('#duotone').css("background-size", "cover");  
   /*  $('.container').css("backdrop-filter", "blur(10px)");*/
     loadPageMain();
@@ -649,9 +663,9 @@ const hideOnEsc = {
                                   mode: mode,
                                   lineItems: items,
                                   successUrl:
-                                    DOMAIN + 'success.html?session_id={CHECKOUT_SESSION_ID}',
+                                    DOMAIN + 'success.html?session_id={CHECKOUT_SESSION_ID}&payment=paid'+'&'+window.location.search.substring(1),
                                   cancelUrl:
-                                    DOMAIN + 'canceled.html?session_id={CHECKOUT_SESSION_ID}',
+                                    DOMAIN + 'canceled.html?session_id={CHECKOUT_SESSION_ID}&payment=canceled'+'&'+window.location.search.substring(1),
                                 }).catch(function(rejected){
                                   console.log(rejected);
                                   //err.message;

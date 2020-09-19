@@ -250,7 +250,7 @@ console.log('Invoice num is',reff_invoiceNum);
     
     $("#button_stripe").attr('data-price-id',reff_priceId)// button_fullPay, button_depositPay
     if(reff_price){
-      $("#button_stripe").removeClass('hasFA')
+     // $("#button_stripe").removeClass('hasFA')
       $("#button_stripe").html('<span>Pay $'+reff_price+' with <span><i class="fab fa-stripe fa-2x faAdjust" ></i></span></span></span>')
     }else{
       $("#button_stripe").html('<span>Pay with <span><i class="fab fa-stripe fa-2x faAdjust" ></i></span></span>')

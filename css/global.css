@@ -7,7 +7,7 @@
   --gray-dark: rgba(0, 0, 0, 0.9);
   --body-color: var(--gray-mid);
   --headline-color: var(--gray-dark);
-  --accent-color: #0066f0;
+  --accent-color: #f15b58;
   --body-font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   --radius: 6px;
   --logo-image: url("https://storage.googleapis.com/stripe-sample-images/KAVHOLM.svg");
@@ -303,7 +303,7 @@ a {
 }
 
 a:hover {
-  filter: brightness(0.8);
+  /*filter: brightness(0.8);*/
 }
 
 a:active {
@@ -357,7 +357,7 @@ pre {
 
 /* Pasha styles – Brand-overrides, can split these out */
 :root {
-  --accent-color: #ed5f74;
+  --accent-color: #f15b58;
   --headline-color: var(--accent-color);
   --logo-image: url("https://storage.googleapis.com/stripe-sample-images/logo-pasha.svg");
 }
@@ -563,8 +563,8 @@ input[type="number"]::-webkit-outer-spin-button {
   background: white;
   color: #6a7c94;
   border-radius: 22px;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
-  display: flex;
+  /*box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+  */display: flex;
   align-items: center;
   box-sizing: border-box;
   padding: 15px;
@@ -609,17 +609,13 @@ input[type="number"]::-webkit-outer-spin-button {
 
       */
      
-      :root {
-        --accent-color: #f15b58;
-       
-       }
+    
        .sr-root {
-       
-       animation-fill-mode: none;/*backwards;*/
+        animation-fill-mode: forwards;
+       /* backdrop-filter:brightness(100%);*/
+       /*animation-fill-mode: none;backwards;*/
        }
-       body{
-         backdrop-filter:brightness(50%);
-       }
+
    html { 
      /*(background:  url(https://i1.wp.com/media2.giphy.com/media/3oz8xrAQweeLfVIkzC/giphy.gif?zoom=2) no-repeat center center fixed; 
      */
@@ -633,6 +629,7 @@ input[type="number"]::-webkit-outer-spin-button {
      color: white;
    }
    button {
+    outline: none !important;
        background: white;
        
        border-radius: var(--radius);
@@ -665,24 +662,7 @@ input[type="number"]::-webkit-outer-spin-button {
      -webkit-backdrop-filter: blur(5px) ;*/
     
    }
-   a {
-       color:white;
-       
-       /*
-        #f15b58;
-        var(--accent-color);*/
-       text-decoration:none;
-       transition: all 0.2s ease;
-   }
-   a:hover {
-     color:#f15b58;
-       /*
-       color:rgba(41, 26, 43, 1);
-       */
-       width:125%;
-       text-decoration:underline;
-       transition: all 0.2s ease;
-   }
+   
    .container{
      background:rgba(41, 26, 43, 0.05);
      /*background:rgba(255, 255, 255, 0.1);
@@ -708,7 +688,7 @@ input[type="number"]::-webkit-outer-spin-button {
   }
    .crypto{
      fill:white;
-   
+     outline: none !important;
    }
    .crypto.svg.adjust {
      width: 16px;
@@ -719,8 +699,51 @@ input[type="number"]::-webkit-outer-spin-button {
    }
    .payIcons{
     text-align: center;
-  
+   }
+   .payIcons,button,button.payButton,.invoiceName,.clientName,.banner,.tippy-content{
+ 
+    -webkit-touch-callout: none !important;
+    -webkit-user-select:none !important;
+    -khtml-user-select:none !important;
+    -moz-user-select:none !important;
+    -ms-user-select:none !important;
+    -o-user-select:none !important;
+    user-select:none !important;
+    text-decoration:none;
   }
+  
+  .payIcons:active,button:active,button.payButton:active,.invoiceName:active,.clientName:active,.banner:active,.tippy-content:active,.payIcons:focus,button:focus,button.payButton:focus,.invoiceName:focus,.clientName:focus,.banner:focus,.tippy-content:focus,{
+    outline: none !important;
+    webkit-box-shadow: none;
+    text-decoration:none;
+   box-shadow: none !important;
+  }
+
+
+  a {
+    color:white;
+   
+    /*
+     #f15b58;
+     var(--accent-color);*/
+    text-decoration:none;
+    transition: all 0.2s ease;
+}
+.whiteSVG{
+  fill:#fff;
+}
+
+
+a:hover,a:hover .svgLinkIcon{
+  color:#f15b58;
+  fill:#f15b58;
+    /*
+    color:rgba(41, 26, 43, 1);
+    */
+ /*   font-size:115%;*/
+    text-decoration:none;
+    transition: all 0.2s ease;
+}
   
    .payIcon:hover {
      color:#f15b58;
@@ -748,3 +771,59 @@ input[type="number"]::-webkit-outer-spin-button {
   font-size: 75%;
 
 }
+
+
+
+
+
+#duotone {
+  background: #291a2b; /* url('https://i.gifer.com/7gS5.gif') no-repeat center center fixed; */
+  background-size: cover;
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  width: 100%;
+  height: 100%;
+  animation-fill-mode: forwards;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  
+}
+
+
+
+#duotone::after {
+  background-color: #291a2b;/*rgb(25, 37, 80);*/
+  content: '';
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: lighten;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*backdrop-filter:grayscale(1);*/
+  backdrop-filter:brightness(140%);
+}
+/*
+/*rgb(240, 14, 46);
+#duotone::before {
+  background-color: #f15b58;
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: darken;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+*/

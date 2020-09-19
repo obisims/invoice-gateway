@@ -129,7 +129,7 @@ spiral:'https://i.gifer.com/YmYu.gif'
   }
   // spike:'https://i.gifer.com/14jd.gif',
 bgs.proffAesth={
-  abstract_circles:'https://cdn.dribbble.com/users/616823/screenshots/9121296/glowspin.gif',
+ // abstract_circles:'https://cdn.dribbble.com/users/616823/screenshots/9121296/glowspin.gif',
   cityNight:'https://i.gifer.com/7Tzm.gif',
   spiral:'https://i.gifer.com/YmYu.gif',
   smoke:'https://i.gifer.com/8YuB.gif',
@@ -149,18 +149,18 @@ bgs.proffAesth={
   spiningnn:'https://i.gifer.com/3BAY.gif',
 }
 bgs.lineart={
-  abstract_circles:'https://cdn.dribbble.com/users/616823/screenshots/9121296/glowspin.gif',
+ // abstract_circles:'https://cdn.dribbble.com/users/616823/screenshots/9121296/glowspin.gif',
 pentinCage:'https://i.gifer.com/4RNe.gif',
 wormer:'https://i.gifer.com/4P4d.gif',
 zoomout:'https://i.gifer.com/7gS5.gif',
-abstract_circles:'https://cdn.dribbble.com/users/616823/screenshots/9121296/glowspin.gif',
+//abstract_circles:'https://cdn.dribbble.com/users/616823/screenshots/9121296/glowspin.gif',
 boxes:'https://i.gifer.com/YYqc.gif',
 squares:'https://i.gifer.com/ZVcG.gif',
 lining:'https://i.gifer.com/7AzB.gif',
-abstract_circles:'https://cdn.dribbble.com/users/616823/screenshots/9121296/glowspin.gif',
+//abstract_circles:'https://cdn.dribbble.com/users/616823/screenshots/9121296/glowspin.gif',
 box:'https://i.gifer.com/4Mg1.gif',
 honeycomb:'https://i.gifer.com/4P4O.gif',
-crosses:'https://i.gifer.com/GTYq.gif',
+//crosses:'https://i.gifer.com/GTYq.gif',
 star:'https://i.gifer.com/4Mg9.gif'
 }
   bgs.punk={
@@ -234,7 +234,7 @@ fuckk:'https://i.gifer.com/410L.gif',
 $( document ).ready(function() {
    reff_invoiceNum = getParameterByName("inv") //?inv=thx-1138 = 'thx-1138'
  reff_priceId = getParameterByName("priceId")
- reff_price = getParameterByName("price")
+ reff_price = parseFloat(getParameterByName("price"))
  reff_clientName = getParameterByName("clientName")
 //var reff_priceId = getParameterByName("priceId")
 
@@ -250,10 +250,11 @@ console.log('Invoice num is',reff_invoiceNum);
     
     $("#button_stripe").attr('data-price-id',reff_priceId)// button_fullPay, button_depositPay
     if(reff_price){
-     // $("#button_stripe").removeClass('hasFA')
-      $("#button_stripe").html('<span>Pay $'+reff_price+' with <span><i class="fab fa-stripe fa-2x faAdjust" ></i></span></span></span>')
+      $("#button_stripe").removeClass('hasFA')
+      $("#button_stripe").html('<span>Pay <span style="font-weight:700;">$'+reff_price.toFixed(2)+'</span></span>')
     }else{
-      $("#button_stripe").html('<span>Pay with <span><i class="fab fa-stripe fa-2x faAdjust" ></i></span></span>')
+      
+      $("#button_stripe").html('<span>or pay with <span><i class="fab fa-stripe fa-2x faAdjust" ></i></span></span>')
     }
     
   }/*else{
@@ -266,8 +267,8 @@ console.log('Invoice num is',reff_invoiceNum);
     $("button#button_stripe").hide()
     $(".invoiceName").html(`Your link is busted dude!`).css({ 'color': 'white', 'font-size': '175%' });
    // $('html').css("background-image", "url("+bgs.keyboard+")"); 
-    $('html').css("background", `url(`+randomProperty(bgs.bad)+`) no-repeat center center fixed`)
-    $('html').css("background-size", "cover");  
+    $('#duotone').css("background", `url(`+randomProperty(bgs.bad)+`) no-repeat center center fixed`)
+    $('#duotone').css("background-size", "cover");  
 
     $(".clientName").text('you might need to talk to me...')   
     $('.banner').hide()
@@ -276,8 +277,10 @@ console.log('Invoice num is',reff_invoiceNum);
 
   //  var bgImage = //bgs.good
   //  console.log('bgImage',bgImage)
-    $('html').css("background", `url(`+randomProperty(bgs.lineart)+`) no-repeat center center fixed`)
-    $('html').css("background-size", "cover");  
+    //$('html').css("background", `url(`+randomProperty(bgs.lineart)+`) no-repeat center center fixed`)
+    //$('html').css("background-size", "cover");  
+    $('#duotone').css("background", `url("${randomProperty(bgs.lineart)}") no-repeat center center fixed`)
+    $('#duotone').css("background-size", "cover");  
   /*  $('.container').css("backdrop-filter", "blur(10px)");*/
     loadPageMain();
   
@@ -308,6 +311,8 @@ console.log('data:',data)
 
 
   <body>
+    <div id="duotone" >
+    </div>
     <div class="sr-root">
       <div class="sr-main" style="display: flex;">
         <!--
@@ -320,10 +325,10 @@ console.log('data:',data)
             <h1 class="invoiceName hidden-load"></h1>
             <h5 class="clientName hidden-load"></h5>
             <button
+            data-payment-mode="stripe"
             class="hidden-load hasFA payButton"  
             id="button_stripe"
               data-checkout-mode="payment"
-              data-payment-mode="stripe"
             >
             <!-- data-price-id="price_1HSeabEB9Gfp1i8Q2LXEl78T" -->
               loading...<!--Pay $100.00 due-->
@@ -355,7 +360,7 @@ console.log('data:',data)
             data-checkout-mode="payment"
             data-payment-mode="coinbase"
           >
-          Pay with Ƀ
+          Pay Ƀ 
           </button>
           <span style="color:white; padding-top: 3px;" class="payIcons">
             <svg title="Bitcoin" id="pi6" class="tooltipped hidden-load payIcon crypto svg adjust"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 226.8 226.8"><path d="M135.7 122.2c-2.6-1.3-8.4-3.1-15.4-3.5 -6.9-0.5-15.8 0-15.8 0v30c0 0 9.3 0.2 15.5-0.3 6.2-0.5 12.6-2 15.8-3.8 3.2-1.8 7.1-4.5 7.1-11.4C142.9 126.4 138.3 123.6 135.7 122.2zM116.2 104.8c5.1-0.2 10.5-1.4 14.5-3.5 3.9-2.2 6.1-5.6 6-10.7 -0.1-5.1-3.5-9.4-9.3-11.2 -5.8-1.8-9.6-1.9-14-2 -4.4-0.1-8.8 0.3-8.8 0.3v27C104.5 104.8 111.1 105 116.2 104.8z"/><path d="M113.4 0C50.8 0 0 50.8 0 113.4 0 176 50.8 226.8 113.4 226.8S226.8 176 226.8 113.4C226.8 50.8 176 0 113.4 0zM159.6 156.8c-8.4 5.9-17.5 6.9-21.5 7.5 -2 0.3-5.3 0.5-9 0.7v22.7h-14v-22.4h-10.7v22.4h-14v-22.4H63l2.9-16.8h8.4c2.8 0 4-0.3 5.2-1.4 1.2-1.1 1.4-2.8 1.4-4.2V85.1c0-3.6-0.3-4.6-2-6.5 -1.7-1.9-5.6-2.1-7.8-2.1H63V61.9h27.5V39.5h14v22.4h10.7V39.5h14v22.7c10.4 0.6 18.2 2.6 25 7.6 8.8 6.5 8.3 17.7 8.1 20.4 -0.2 2.7-1.4 7.8-3.7 11.2 -2.4 3.3-8.1 6.7-8.1 6.7s6.8 1.4 11.6 5c4.8 3.6 8.3 9.9 8.1 19.2C169.9 141.7 168 150.9 159.6 156.8z"/></svg>&nbsp;
@@ -475,19 +480,21 @@ const hideOnEsc = {
         <div id="error-message"></div>
       </div>
     </div>
+  
     <div class="banner hidden-load">
       <span>
         This is a
         <a target="_blank" href="https://stripe.com/en-au">
           <span><i class="fab fa-stripe fa-2x faAdjust" ></i></span></a> and
-          <a target="_blank" href="https://www.coinbase.com/"><svg style="fill:#fff;width:50px;position:relative;top:1px;" class="svg adjust" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122 28"><style type="text/css">  
+          <a target="_blank" href="https://www.coinbase.com/"><svg style="height:11px;position:relative;top:1px;" class="svgLink whiteSVG svg adjust" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122 28"><style type="text/css">  
             .st0{fill-rule:evenodd;clip-rule:evenodd;}
-          </style><path class="st0" d="M10.3 23.9c0.9 0 1.8-0.2 2.6-0.5 0 0 1.7 2.6 1.7 2.6 -1.5 0.8-3.1 1.2-4.8 1.2 -5.1 0-8.9-3.4-8.9-8.8C1 13 4.9 9.6 9.9 9.6c1.8 0 3.1 0.4 4.5 1.1l-1.6 2.7c-0.8-0.3-1.7-0.5-2.6-0.5 -3 0-5.4 1.9-5.4 5.5C4.8 21.8 7.1 23.9 10.3 23.9zM23.3 9.6c5 0 8.7 3.6 8.7 8.8 0 5.2-3.6 8.8-8.7 8.8 -5 0-8.6-3.6-8.6-8.8C14.6 13.2 18.3 9.6 23.3 9.6zM23.3 12.8c-2.8 0-4.9 2.2-4.9 5.6 0 3.4 2 5.6 4.9 5.6 2.9 0 4.9-2.2 4.9-5.5C28.2 15 26.1 12.8 23.3 12.8zM34.3 26.8V10h3.8v16.8L34.3 26.8 34.3 26.8zM33.8 4.8c0.1-1.3 1.2-2.3 2.5-2.2 1.2 0.1 2.1 1 2.2 2.2 0 1.3-1 2.4-2.3 2.4C34.9 7.2 33.9 6.1 33.8 4.8L33.8 4.8zM41.4 11.1c2.5-0.9 5.1-1.4 7.7-1.4 4.3 0 7 1.6 7 6.4v10.8h-3.7V16.3c0-2.4-1.5-3.3-3.6-3.3 -1.3 0-2.7 0.2-3.7 0.5v13.3h-3.8L41.4 11.1 41.4 11.1zM59.3 1H63v9.4c0.8-0.4 2.3-0.8 3.8-0.8 4.9 0 8.5 3.1 8.5 8.5 0 5.4-3.6 9.1-9.8 9.1 -2.4 0-4.6-0.5-6.3-1.1V1zM63 23.6c0.7 0.2 1.7 0.4 2.6 0.4 3.4 0 5.9-1.9 5.9-5.8 0-3.3-2.3-5.2-5.2-5.2 -1.5 0-2.6 0.4-3.4 0.8C63 13.8 63 23.6 63 23.6zM86.2 15.5c0-1.8-1.4-2.7-3.2-2.7 -1.9 0-3.4 0.6-4.8 1.4V11c1.7-0.9 3.6-1.4 5.5-1.4 3.7 0 6.3 1.5 6.3 5.7v11.1c-1.6 0.4-3.9 0.7-5.8 0.7 -4.4 0-7.6-1.3-7.6-5.1 0-3.4 2.9-5.1 7.8-5.1h1.9L86.2 15.5 86.2 15.5zM86.2 19.4h-1.6c-2.6 0-4.3 0.8-4.3 2.5 0 1.7 1.6 2.4 3.9 2.4 0.6 0 1.4-0.1 2.1-0.2L86.2 19.4 86.2 19.4zM92.6 22.3c1.5 1.2 3.3 1.8 5.1 1.9 1.7 0 2.8-0.6 2.8-1.9 0-1.4-1-1.9-3.2-2.4 -3.5-0.8-5-2.2-5-5.1 0-3.4 2.6-5.1 6-5.1 1.9 0 3.4 0.4 4.8 1.3v3.4c-1.3-1.1-3-1.7-4.7-1.7 -1.6 0-2.5 0.8-2.5 1.9s0.7 1.7 2.7 2.2c3.8 0.8 5.5 2.3 5.5 5.3 0 3.5-2.7 5.1-6.3 5.1 -1.8 0-3.6-0.4-5.2-1.4L92.6 22.3 92.6 22.3zM109.3 19.3L109.3 19.3c0.2 3.1 2.8 4.7 5.4 4.7 2.3 0 4-0.5 5.7-1.6v3.3c-1.5 1.1-3.8 1.6-5.9 1.6 -5.2 0-8.8-3.3-8.8-8.6 0-5.4 3.5-8.9 8.1-8.9 4.9 0 7.2 3.1 7.2 7.7v1.9L109.3 19.3 109.3 19.3zM117.5 16.8c-0.1-2.6-1.4-4.1-3.8-4.1 -2.2 0-3.8 1.5-4.2 4.1H117.5z"/></svg></a> gateway by
+          </style><path class="st0 svgLinkIcon" d="M10.3 23.9c0.9 0 1.8-0.2 2.6-0.5 0 0 1.7 2.6 1.7 2.6 -1.5 0.8-3.1 1.2-4.8 1.2 -5.1 0-8.9-3.4-8.9-8.8C1 13 4.9 9.6 9.9 9.6c1.8 0 3.1 0.4 4.5 1.1l-1.6 2.7c-0.8-0.3-1.7-0.5-2.6-0.5 -3 0-5.4 1.9-5.4 5.5C4.8 21.8 7.1 23.9 10.3 23.9zM23.3 9.6c5 0 8.7 3.6 8.7 8.8 0 5.2-3.6 8.8-8.7 8.8 -5 0-8.6-3.6-8.6-8.8C14.6 13.2 18.3 9.6 23.3 9.6zM23.3 12.8c-2.8 0-4.9 2.2-4.9 5.6 0 3.4 2 5.6 4.9 5.6 2.9 0 4.9-2.2 4.9-5.5C28.2 15 26.1 12.8 23.3 12.8zM34.3 26.8V10h3.8v16.8L34.3 26.8 34.3 26.8zM33.8 4.8c0.1-1.3 1.2-2.3 2.5-2.2 1.2 0.1 2.1 1 2.2 2.2 0 1.3-1 2.4-2.3 2.4C34.9 7.2 33.9 6.1 33.8 4.8L33.8 4.8zM41.4 11.1c2.5-0.9 5.1-1.4 7.7-1.4 4.3 0 7 1.6 7 6.4v10.8h-3.7V16.3c0-2.4-1.5-3.3-3.6-3.3 -1.3 0-2.7 0.2-3.7 0.5v13.3h-3.8L41.4 11.1 41.4 11.1zM59.3 1H63v9.4c0.8-0.4 2.3-0.8 3.8-0.8 4.9 0 8.5 3.1 8.5 8.5 0 5.4-3.6 9.1-9.8 9.1 -2.4 0-4.6-0.5-6.3-1.1V1zM63 23.6c0.7 0.2 1.7 0.4 2.6 0.4 3.4 0 5.9-1.9 5.9-5.8 0-3.3-2.3-5.2-5.2-5.2 -1.5 0-2.6 0.4-3.4 0.8C63 13.8 63 23.6 63 23.6zM86.2 15.5c0-1.8-1.4-2.7-3.2-2.7 -1.9 0-3.4 0.6-4.8 1.4V11c1.7-0.9 3.6-1.4 5.5-1.4 3.7 0 6.3 1.5 6.3 5.7v11.1c-1.6 0.4-3.9 0.7-5.8 0.7 -4.4 0-7.6-1.3-7.6-5.1 0-3.4 2.9-5.1 7.8-5.1h1.9L86.2 15.5 86.2 15.5zM86.2 19.4h-1.6c-2.6 0-4.3 0.8-4.3 2.5 0 1.7 1.6 2.4 3.9 2.4 0.6 0 1.4-0.1 2.1-0.2L86.2 19.4 86.2 19.4zM92.6 22.3c1.5 1.2 3.3 1.8 5.1 1.9 1.7 0 2.8-0.6 2.8-1.9 0-1.4-1-1.9-3.2-2.4 -3.5-0.8-5-2.2-5-5.1 0-3.4 2.6-5.1 6-5.1 1.9 0 3.4 0.4 4.8 1.3v3.4c-1.3-1.1-3-1.7-4.7-1.7 -1.6 0-2.5 0.8-2.5 1.9s0.7 1.7 2.7 2.2c3.8 0.8 5.5 2.3 5.5 5.3 0 3.5-2.7 5.1-6.3 5.1 -1.8 0-3.6-0.4-5.2-1.4L92.6 22.3 92.6 22.3zM109.3 19.3L109.3 19.3c0.2 3.1 2.8 4.7 5.4 4.7 2.3 0 4-0.5 5.7-1.6v3.3c-1.5 1.1-3.8 1.6-5.9 1.6 -5.2 0-8.8-3.3-8.8-8.6 0-5.4 3.5-8.9 8.1-8.9 4.9 0 7.2 3.1 7.2 7.7v1.9L109.3 19.3 109.3 19.3zM117.5 16.8c-0.1-2.6-1.4-4.1-3.8-4.1 -2.2 0-3.8 1.5-4.2 4.1H117.5z"/></svg></a> gateway by
         <a
           href="https://obisims.com"
         >
-        <strong>obisims.com</strong> |
-       
+        <strong>obisims.com</strong> </a>
+        &nbsp;|&nbsp;<a target="_blank" href="https://obisims.com/"> <svg style="height:14px;position:relative;top:4px;" class="svgLink whiteSVG svg adjust" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.3 29"><path class="svgLinkIcon" d="M17.7 22.2l2.7 2c-1.2 2.2-3.2 4.8-6 4.8 -1.5 0-3.1-1-4.6-2 -1.5-1-2.7-2-3.6-2 -1.3 0-2.4 1.2-3.6 3.3L0 26.4c1.4-2.1 3.2-4.9 6.1-4.9 2 0 3.5 1 4.8 2 1.3 1 2.4 2 3.3 2C15.8 25.6 16.5 24.1 17.7 22.2M3.8 9.9c0-3.5 2.8-6.5 6.4-6.5 3.5 0 6.4 2.9 6.4 6.5 0 3.5-2.8 6.5-6.3 6.5C6.6 16.4 3.8 13.4 3.8 9.9M20.1 9.9c0-5.6-4.4-9.9-9.9-9.9S0.2 4.3 0.2 9.9c0 5.6 4.4 9.9 9.9 9.9S20.1 15.5 20.1 9.9"/></svg>
+        </a>&nbsp;<a target="_blank" href="https://open.spotify.com/user/12121388895?si=hxgWcsPnQhq1_sheIraW0A"><span><i class="fab fa-spotify" ></i></span></a>
       </span>
     </div>
 
@@ -511,12 +518,34 @@ const hideOnEsc = {
 
       document.querySelectorAll('button').forEach(function (button) {
         button.addEventListener('click', function (e) {
-          var mode = e.target.dataset.checkoutMode;
-          var priceId = e.target.dataset.priceId;
-          var items = [{ price: priceId, quantity: 1 }];
+          var target = e.target
+          var targetID = target.id
+          
+          console.log('[click] target',target)
+          console.log('[click] targetID',targetID)
+          
+          if(!targetID){
+            console.log('[click] targetID:',false)
+            var parent = target.parentElement.parentElement
+            console.log('[click] parent',parent)
+            target = parent
+          }else{
+            console.log('[click] targetID:',true)
+          }
+          console.log('[click] target',target)
+          
+          
+          var mode = target.dataset.checkoutMode;
+          var priceId = target.dataset.priceId;
 
-          var paymentMode = e.target.dataset.paymentMode;
+          var items = [{ price: priceId, quantity: 1 }];
+          
+          var thisDataset = target.dataset
+          
+
+          var paymentMode = target.dataset.paymentMode;
           // data-payment-mode="stripe"
+          console.log('button clicked',paymentMode)
           if(paymentMode=='stripe'){
              // Make the call to Stripe.js to redirect to the checkout page
             // with the sku or plan ID.

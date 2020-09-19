@@ -625,6 +625,21 @@ input[type="number"]::-webkit-outer-spin-button {
     
    
    }
+   body{
+    -webkit-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
+    
+}
+html{
+  -webkit-transition: background-color 1000ms linear;
+  -ms-transition: background-color 1000ms linear;
+  transition: background-color 1000ms linear;
+  
+}
+   body.hide-opacity{
+    background-color: #fff !important;
+}
    h1,h5{
      color: white;
    }

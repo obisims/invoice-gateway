@@ -26,13 +26,15 @@
     var reff_clientName = getParameterByName("clientName")
     var reff_sessionId = getParameterByName("session_id")
     var reff_redirectLoops = getParameterByName("redirectLoops")
+    var reff_paymentCancelled = getParameterByName("payment")
+    
     if(reff_sessionId){
       if(reff_invoiceNum)searchPars='inv='+reff_invoiceNum
       if(reff_priceId)searchPars+='&priceId='+reff_priceId
       if(reff_price)searchPars+='&price='+reff_price
       if(reff_clientName)searchPars+='&clientName='+reff_price
-      if(reff_sessionId)searchPars+='&redirectLoops='+(parseInt(reff_redirectLoops)+1)
-      
+      if(reff_sessionId)searchPars+='&redirectLoops='+(reff_redirectLoops+1)
+      if(reff_paymentCancelled)searchPars+='&payment='+reff_paymentCancelled
     }
   
 

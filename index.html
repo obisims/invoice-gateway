@@ -294,7 +294,7 @@ fuckk:'https://i.gifer.com/410L.gif',
     var reff_priceId;
     var reff_price;
     var reff_clientName;
-    
+    var reff_redirectLoops;
 $( document ).ready(function() {
   $('#body').removeClass('hidden-load')
    reff_invoiceNum = getParameterByName("inv") //?inv=thx-1138 = 'thx-1138'
@@ -303,12 +303,14 @@ $( document ).ready(function() {
  reff_clientName = getParameterByName("clientName")
  reff_paymentCancelled = !(!getParameterByName("payment"))
  reff_ = window.location.search.substring(1)
+ reff_redirectLoops = getParameterByName("redirectLoops")
+
  console.log('reff_:',reff_)
  console.log('reff_invoiceNum:',reff_invoiceNum)
  console.log('reff_priceId:',reff_priceId)
  console.log('reff_price:',reff_price)
  console.log('reff_paymentCancelled:',reff_paymentCancelled)
- 
+ console.log('reff_redirectLoops:',reff_redirectLoops)
 //var reff_priceId = getParameterByName("priceId")
 
 //console.log('Invoice num is',reff_invoiceNum);
@@ -378,14 +380,14 @@ var price = ''
 var data = ''
 var data_a;
 //console.log(stripe)
-console.log('gettingData')
+//console.log('gettingData')
 
 
   /*var price = stripe.prices.retrieve(
   reff_priceId //'price_1HSlhGEB9Gfp1i8Qe3ZofJlk'
 );*/
-console.log('price:',price)
-console.log('data:',data)
+//console.log('price:',price)
+//console.log('data:',data)
 
 });
 

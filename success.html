@@ -10,6 +10,15 @@
     <link rel="stylesheet" href="css/global.css" />
     <script src="https://js.stripe.com/v3/"></script>
     <script>
+         function getParameterByName(name, url) {
+      if (!url) url = window.location.href;
+      name = name.replace(/[\[\]]/g, '\\$&');
+      var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+          results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, ' '));
+  }
        var searchPars = window.location.search.substring(1)
     var reff_invoiceNum = getParameterByName("inv") //?inv=thx-1138 = 'thx-1138'
     var reff_priceId = getParameterByName("priceId")

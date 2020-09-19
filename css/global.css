@@ -623,7 +623,7 @@ input[type="number"]::-webkit-outer-spin-button {
    html { 
      /*(background:  url(https://i1.wp.com/media2.giphy.com/media/3oz8xrAQweeLfVIkzC/giphy.gif?zoom=2) no-repeat center center fixed; 
      */
-     background-color:#f15b58;
+     background-color:#291a2b;/*#f15b58;*/
      background-size: cover;
      font-family: 'Roboto', sans-serif;
     
@@ -653,8 +653,10 @@ input[type="number"]::-webkit-outer-spin-button {
    
    }
    .banner {
-       /*max-width: 825px;*/
-       margin: 20px;
+       /*max-width: 825px;
+       margin: 20px;*/
+       font-size: 70%;
+       margin: 0px 20px;
        padding: 10px;
        background:rgba(41, 26, 43, 0.05);
        /* #291a2b  rgba(255,255,255,0.1);*/
@@ -669,7 +671,7 @@ input[type="number"]::-webkit-outer-spin-button {
        /*
         #f15b58;
         var(--accent-color);*/
-       text-decoration:underline;
+       text-decoration:none;
        transition: all 0.2s ease;
    }
    a:hover {
@@ -698,10 +700,12 @@ input[type="number"]::-webkit-outer-spin-button {
        */
    }
    .faAdjust{
-             top: 7px;
+             top: 5px;
              position: relative;
            }
-   
+   .payButton .faAdjust{
+    top: 7px;
+  }
    .crypto{
      fill:white;
    

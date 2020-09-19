@@ -661,8 +661,8 @@ input[type="number"]::-webkit-outer-spin-button {
        background:rgba(41, 26, 43, 0.05);
        /* #291a2b  rgba(255,255,255,0.1);*/
        color: rgba(255,255,255,05);
-       backdrop-filter: blur(5px) ;
-     -webkit-backdrop-filter: blur(5px) ;
+      /* backdrop-filter: blur(5px) ;
+     -webkit-backdrop-filter: blur(5px) ;*/
     
    }
    a {
@@ -685,9 +685,9 @@ input[type="number"]::-webkit-outer-spin-button {
    }
    .container{
      background:rgba(41, 26, 43, 0.05);
-     /*background:rgba(255, 255, 255, 0.1);*/
+     /*background:rgba(255, 255, 255, 0.1);
      backdrop-filter: blur(3px) ;
-     -webkit-backdrop-filter: blur(3px) ;
+     -webkit-backdrop-filter: blur(3px) ;*/
      border: none;
       /*
        border: 1px solid #e8e8e8;

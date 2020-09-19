@@ -82,8 +82,8 @@
       
     }
   bgs.good = {
-    abstract_circles:bgs.abstract_circles,
-    trump:bgs.trump,
+    abstract_circles:bgs.base.abstract_circles,
+    trump:bgs.base.trump,
     abstract_foldingCircles:'https://whileiamdying.files.wordpress.com/2014/08/tumblr_na8i9j4r471ts4htvo1_500.gif',
     bloodfloor:'https://i.gifer.com/Z4y6.gif',
     joyDivis:'https://i.gifer.com/2njo.gif'
@@ -353,11 +353,14 @@ $( document ).ready(function() {
     //$('html').css("background", `url(`+randomProperty(bgs.lineart)+`) no-repeat center center fixed`)
     //$('html').css("background-size", "cover");  
     
-    if(reff_paymentCancelled){
-      var selectBGs = bgs.good ||bgs.punk ||bgs.good||bgs.bad //incase i delete a bg link obj and forget... which i will
+    if(reff_paymentCancelled==true){
+      var selectBGs = bgs.aesth ||bgs.punk ||bgs.good||bgs.bad //incase i delete a bg link obj and forget... which i will
+      console.log('selectBGs:',selectBGs)
       $('#duotone').css("background", `url("${randomProperty(selectBGs)}") no-repeat center center fixed`)
     }else{
-      $('#duotone').css("background", `url("${randomProperty(bgs.lineart)}") no-repeat center center fixed`)
+      var selectBGs = bgs.lineart
+      console.log('selectBGs:',selectBGs)
+      $('#duotone').css("background", `url("${randomProperty(selectBGs)}") no-repeat center center fixed`)
     }
     $('#duotone').css("background-size", "cover");  
   /*  $('.container').css("backdrop-filter", "blur(10px)");*/

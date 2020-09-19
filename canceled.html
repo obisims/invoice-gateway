@@ -24,6 +24,18 @@
     var reff_priceId = getParameterByName("priceId")
     var reff_price = parseFloat(getParameterByName("price"))
     var reff_clientName = getParameterByName("clientName")
+    var reff_sessionId = getParameterByName("session_id")
+    var reff_redirectLoops = getParameterByName("redirectLoops")
+    if(reff_sessionId){
+      if(reff_invoiceNum)searchPars='inv='+reff_invoiceNum
+      if(reff_priceId)searchPars+='&priceId='+reff_priceId
+      if(reff_price)searchPars+='&price='+reff_price
+      if(reff_clientName)searchPars+='&clientName='+reff_price
+      if(reff_sessionId)searchPars+='&redirectLoops='+(parseInt(reff_redirectLoops)+1)
+      
+    }
+  
+
     window.location.href="https://invoice.obisims.com?"+searchPars; 
 
     </script>

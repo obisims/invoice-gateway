@@ -214,9 +214,9 @@ fuckk:'https://i.gifer.com/410L.gif',
                   //your code to be executed after 1 second
 
                   $('#button_coinbase').removeClass('hidden-load')
-                  animateCSS('#button_coinbase', 'fadeInLeft slow animate__delay-1s').then((message) => {
+                  animateCSS('#button_coinbase', 'fadeInLeft slow animate__delay-3s').then((message) => {
 
-                  //  if(reff_paymentCancelled==true)$('section.container').css("background-color", 'rgba(41, 26, 43, 0.75)')
+                    if(reff_paymentCancelled==true)$('section.container').css("background-color", 'rgba(41, 26, 43, 0.75)')
 
                   // Do something after the animation
                     console.log('we fadeIn')
@@ -230,7 +230,7 @@ fuckk:'https://i.gifer.com/410L.gif',
                   
                   setTimeout(function() {
                     $('#mainLogo_Line').removeClass('hidden-load')
-                    animateCSS('#mainLogo_Line', 'fadeIn animate__faster').then(function(){})
+                    animateCSS('#mainLogo_Line', 'fadeIn faster').then(function(){})
                     
                     var delayInMilliseconds_forTitle = 100;
                     setTimeout(function() {
@@ -241,7 +241,7 @@ fuckk:'https://i.gifer.com/410L.gif',
                         animateCSS('.clientName', 'fadeIn').then(function(){
 
                           $('.banner').removeClass('hidden-load')
-                          animateCSS('.banner', 'fadeInUp animate__slower')
+                          animateCSS('.banner', 'fadeInUp slower')
                         })
 
                       })
@@ -254,6 +254,7 @@ fuckk:'https://i.gifer.com/410L.gif',
                   jQuery.each($payIcons, function(index, value) {
                     setTimeout(function() {
                       var thisID = $(value).attr("id")
+                      console.log('loading payIcon:',value)
                       $('#'+thisID).removeClass('hidden-load')
                   //   $box.append('<p class="box">' + value + '</p>');
                       console.log(thisID);

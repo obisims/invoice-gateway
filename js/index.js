@@ -352,11 +352,11 @@ $(document).ready(function() {
             }*/
             var selectBGs = {
                 CANCEL: all_backgrounds.CANCEL,
-                punk: all_backgrounds.punk,
-                CANCELa: all_backgrounds.CANCEL,
-                bad: all_backgrounds.bad,
-                CANCELb: all_backgrounds.CANCEL,
-                MINIMAL_RETRO: all_backgrounds.minimalRetro,
+               // punk: all_backgrounds.punk,
+               // CANCELa: all_backgrounds.CANCEL,
+               // bad: all_backgrounds.bad,
+              //  CANCELb: all_backgrounds.CANCEL,
+              //  MINIMAL_RETRO: all_backgrounds.minimalRetro,
                 CHILL:all_backgrounds.CHILL
             }
             //select a random group

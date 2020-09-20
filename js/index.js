@@ -383,8 +383,12 @@ $(document).ready(function() {
         /*  $('.container').css("backdrop-filter", "blur(10px)");*/
         loadPageMain();
         document.querySelectorAll('button').forEach(function(button) {
-            console.log('[EVENT LISTENER] MADE',{button:button})
-            button.addEventListener('click', handleCheckoutButtons(e));
+           // console.log('[EVENT LISTENER] MADE',{button:button})
+            button.addEventListener('click', (e) => {
+                handleCheckoutButtons(e)
+                //console.log(this.className)           // WARNING: `this` is not `my_element`
+               // console.log(e.currentTarget === this) // logs `false`
+              });
         });
         //rotateIn
 

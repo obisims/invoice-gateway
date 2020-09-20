@@ -169,8 +169,11 @@ function loadPageMain() {
                 $('#button_coinbase').removeClass('hidden-load')
                 animateCSS('#button_coinbase', 'fadeInLeft slow').then((message) => {
 
-                    if (reff_paymentCancelled == true) $('section.container').css("background-color", 'rgba(41, 26, 43, 0.75)')
-
+                    if (reff_paymentCancelled == true){
+                        $('section.container').css("background-color", 'rgba(41, 26, 43, 0.75)')
+                    } else{
+                        $('section.container').css("background-color", 'rgba(41, 26, 43, 0.85)')
+                    }
                     // Do something after the animation
                     console.log('we fadeIn')
                     //var $box = $(".testBox"),// cache container to avoid dom search each iteration
@@ -324,7 +327,7 @@ $(document).ready(function() {
         });
         // $('html').css("background-image", "url("+bgs.keyboard+")"); 
         $('#duotone').css("background-size", "cover");
-        $('#duotone').css("background", `url(` + randomProperty(bgs.bad) + `) no-repeat center center fixed`)
+        $('#duotone').css("background", `url(` + randomProperty(all_backgrounds.bad) + `) no-repeat center center fixed`)
 
         $(".clientName").text('you might need to talk to me...')
         $('.banner').hide()
@@ -336,23 +339,34 @@ $(document).ready(function() {
         //$('html').css("background", `url(`+randomProperty(bgs.lineart)+`) no-repeat center center fixed`)
         //$('html').css("background-size", "cover");  
 
+        
         if (reff_paymentCancelled == true) {
             //$('#duotone').removeClass('animate__animated animate__slideInRight animate__slow')
-            var selectBGs = randomProperty({
-                aesth: bgs.aesth,
-                punk: bgs.punk,
-                good: bgs.good,
-                bad: bgs.bad,
-                proffAesth: bgs.proffAesth,
-                base: bgs.base
-            }) || bgs.aesth || bgs.punk || bgs.good || bgs.bad //incase i delete a bg link obj and forget... which i will
-            console.log('selectBGs:', selectBGs)
+            var selectBGs = {
+                aesth: all_backgrounds.aesth,
+                punk: all_backgrounds.punk,
+                good: all_backgrounds.good,
+                bad: all_backgrounds.bad,
+                proffAesth: all_backgrounds.aesth_finance,
+                base: all_backgrounds.base
+            }
+            //select a random group
+             var selectedBGGroup = shuffleObject(randomProperty(shuffleObject(selectBGs))) || all_backgrounds.aesth || all_backgrounds.punk || all_backgrounds.good || all_backgrounds.bad //incase i delete a bg link obj and forget... which i will
+           
+            console.log('selectedBGGroup:', selectedBGGroup)
             //$('#duotone').css("background", `url("${randomProperty(selectBGs)}") no-repeat center center fixed`)
         } else {
-            var selectBGs = bgs.lineart
-            console.log('selectBGs:', selectBGs)
+            var selectBGs = {
+              //  HOME:all_backgrounds.HOME,
+                OH:all_backgrounds.OH,
+                SAFE:all_backgrounds.SAFE,
+                OH:all_backgrounds.OH,
+            }
+            var selectedBGGroup = shuffleObject(randomProperty(shuffleObject(selectBGs))) //minimalRetro // lineart
+            console.log('selectedBGGroup:', selectedBGGroup)
         }
-        $('#duotone').css("background", `url("${randomProperty(selectBGs)}") no-repeat center center fixed`)
+        console.log('all_backgrounds:', all_backgrounds)
+        $('#duotone').css("background", `url("${randomProperty(selectedBGGroup)}") no-repeat center center fixed`)
 
         $('#duotone').css("background-size", "cover");
         $('#duotone').removeClass('hidden-load')
@@ -369,9 +383,7 @@ $(document).ready(function() {
     
     /*$("#button_depositPay").attr('data-price-id',reff_priceId)
     $("#button_depositPay").text('Pay Deposit')*/
-    var price = ''
-    var data = ''
-    var data_a;
+  
     //console.log(stripe)
     //console.log('gettingData')
 

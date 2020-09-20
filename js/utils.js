@@ -34,9 +34,23 @@ function grabAllParamData(paramData) {
     if (reff_price) paramData.PRICE = reff_price
 
     if (reff_clientName) paramData.CLIENT_NAME = reff_clientName
-    if (reffreff_paymentCancelled_) paramData.PAYMENT_CANCELLED = reff_paymentCancelled
+    if (reff_paymentCancelled) paramData.PAYMENT_CANCELLED = reff_paymentCancelled
     if (reff_redirectLoops) paramData.REDIRECT_LOOPS = reff_redirectLoops
 
     console.log('[grabParamData] complete:', paramData)
     return paramData
+}
+
+function shuffleObject(obj){
+    // new obj to return
+  let newObj = {};
+    // create keys array
+  var keys = Object.keys(obj);
+    // randomize keys array
+    keys.sort(function(a,b){return Math.random()- 0.5;});
+  // save in new array
+    keys.forEach(function(k) {
+        newObj[k] = obj[k];
+});
+  return newObj;
 }

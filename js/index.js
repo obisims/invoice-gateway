@@ -327,7 +327,7 @@ $(document).ready(function() {
         });
         // $('html').css("background-image", "url("+bgs.keyboard+")"); 
         $('#duotone').css("background-size", "cover");
-        $('#duotone').css("background", `url(` + randomProperty(all_backgrounds.bad) + `) no-repeat center center fixed`)
+        $('#duotone').css("background", `url(` + randomProperty(all_backgrounds.ERROR) + `) no-repeat center center fixed`)
 
         $(".clientName").text('you might need to talk to me...')
         $('.banner').hide()
@@ -342,13 +342,22 @@ $(document).ready(function() {
         
         if (reff_paymentCancelled == true) {
             //$('#duotone').removeClass('animate__animated animate__slideInRight animate__slow')
-            var selectBGs = {
+            /*var selectBGs = {
                 aesth: all_backgrounds.aesth,
                 punk: all_backgrounds.punk,
                 good: all_backgrounds.good,
                 bad: all_backgrounds.bad,
                 proffAesth: all_backgrounds.aesth_finance,
                 base: all_backgrounds.base
+            }*/
+            var selectBGs = {
+                CANCEL: all_backgrounds.CANCEL,
+                punk: all_backgrounds.punk,
+                CANCELa: all_backgrounds.CANCEL,
+                bad: all_backgrounds.bad,
+                CANCELb: all_backgrounds.CANCEL,
+                MINIMAL_RETRO: all_backgrounds.minimalRetro,
+                CHILL:all_backgrounds.CHILL
             }
             //select a random group
              var selectedBGGroup = shuffleObject(randomProperty(shuffleObject(selectBGs))) || all_backgrounds.aesth || all_backgrounds.punk || all_backgrounds.good || all_backgrounds.bad //incase i delete a bg link obj and forget... which i will

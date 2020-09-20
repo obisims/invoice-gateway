@@ -33,7 +33,11 @@
       if(reff_priceId)searchPars+='&priceId='+reff_priceId
       if(reff_price)searchPars+='&price='+reff_price
       if(reff_clientName)searchPars+='&clientName='+reff_clientName
-      if(reff_sessionId)searchPars+='&redirectLoops='+(reff_redirectLoops+1)
+      if(reff_redirectLoops){
+        searchPars+='&redirectLoops='+(parseInt(reff_redirectLoops)+1)
+      }else{
+        searchPars+='&redirectLoops=1'
+      }
       if(reff_paymentCancelled)searchPars+='&payment='+reff_paymentCancelled
     }
   

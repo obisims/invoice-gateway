@@ -1,4 +1,5 @@
 function handleCheckoutButtons(e) {
+    console.log('[handleCheckoutButtons] e',e)
     var target = e.target
     var targetID = target.id
 

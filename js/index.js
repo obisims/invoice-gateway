@@ -383,6 +383,7 @@ $(document).ready(function() {
         /*  $('.container').css("backdrop-filter", "blur(10px)");*/
         loadPageMain();
         document.querySelectorAll('button').forEach(function(button) {
+            console.log('[EVENT LISTENER] MADE',{button:button})
             button.addEventListener('click', handleCheckoutButtons(e));
         });
         //rotateIn

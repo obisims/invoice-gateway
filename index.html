@@ -1,5 +1,11 @@
 <!DOCTYPE html>
+
+
+
 <html lang="en">
+
+
+
   <head>
     <meta charset="utf-8" />
     <title>obisims invoice gateway</title>
@@ -221,7 +227,7 @@ fuckk:'https://i.gifer.com/410L.gif',
                   // Do something after the animation
                     console.log('we fadeIn')
                   //var $box = $(".testBox"),// cache container to avoid dom search each iteration
-                  delay = 100; //time in ms
+                  
                   var $payIcons = $('.payIcon')
 
                   $('#mainLogo').removeClass('hidden-load')
@@ -250,7 +256,7 @@ fuckk:'https://i.gifer.com/410L.gif',
 
                   },delayInMilliseconds_forLine)
 
-
+                  delay = 100; //time in ms
                   jQuery.each($payIcons, function(index, value) {
                     setTimeout(function() {
                       var thisID = $(value).attr("id")
@@ -281,6 +287,9 @@ fuckk:'https://i.gifer.com/410L.gif',
 
 
                 }, delayInMilliseconds_forSecondButton);
+
+
+
 
               }, delayInMilliseconds_forFirstButton);
 
@@ -360,7 +369,7 @@ $( document ).ready(function() {
     //$('html').css("background-size", "cover");  
     
     if(reff_paymentCancelled==true){
-      $('#duotone').removeClass('animate__animated animate__slideInRight animate__slow')
+      //$('#duotone').removeClass('animate__animated animate__slideInRight animate__slow')
       var selectBGs = randomProperty({
         aesth:bgs.aesth,
         punk:bgs.punk,
@@ -369,7 +378,7 @@ $( document ).ready(function() {
         proffAesth:bgs.proffAesth,
         base:bgs.base
         }) || bgs.aesth ||bgs.punk ||bgs.good||bgs.bad //incase i delete a bg link obj and forget... which i will
-      console.log('selectBGs:',selectBGs)
+      console.log('selectBGs:',selectBGs) 
       //$('#duotone').css("background", `url("${randomProperty(selectBGs)}") no-repeat center center fixed`)
     }else{
       var selectBGs = bgs.lineart
@@ -378,12 +387,15 @@ $( document ).ready(function() {
     $('#duotone').css("background", `url("${randomProperty(selectBGs)}") no-repeat center center fixed`)
     
     $('#duotone').css("background-size", "cover");  
+    $('#duotone').removeClass('hidden-load')
+    if(reff_paymentCancelled==false)animateCSS('#duotone', 'slideInRight slow')
   /*  $('.container').css("backdrop-filter", "blur(10px)");*/
     loadPageMain();
   //rotateIn
 
 
   }
+  
   //html { 
   /*(background:  url(https://i1.wp.com/media2.giphy.com/media/3oz8xrAQweeLfVIkzC/giphy.gif?zoom=2) no-repeat center center fixed; 
   
@@ -409,9 +421,42 @@ var data_a;
   </head>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <body id="body" class="hidden-load">
-    <div id="duotone" class="animate__animated animate__slideInRight animate__slow">
+    <!--<div id="slideInWrapper"> -->
+    <div id="duotone" class="hidden-load"><!--animate__animated animate__slideInRight animate__slow-->
     </div>
+
     <div class="sr-root">
       <div class="sr-main" style="display: flex;">
         <!--

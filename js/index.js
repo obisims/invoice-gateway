@@ -382,6 +382,9 @@ $(document).ready(function() {
         //if(reff_paymentCancelled==false)animateCSS('#duotone', 'slideInRight slow')
         /*  $('.container').css("backdrop-filter", "blur(10px)");*/
         loadPageMain();
+        document.querySelectorAll('button').forEach(function(button) {
+            button.addEventListener('click', handleCheckoutButtons(e));
+        });
         //rotateIn
 
 

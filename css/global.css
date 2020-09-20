@@ -475,6 +475,8 @@ pre {
   display: flex;
 }
 .container {
+  transition: all 0.2s ease;
+  background-color: rgba(41, 26, 43, 0);
   border: 1px solid #e8e8e8;
   border-radius: 6px;
   padding: 32px 28px;

@@ -204,7 +204,7 @@ fuckk:'https://i.gifer.com/410L.gif',
               // Do something after the animation
               console.log('screenLoaded')
 
-              var delayInMilliseconds_forFirstButton = 100; 
+              var delayInMilliseconds_forFirstButton = 400; 
               setTimeout(function() {
                
                
@@ -219,70 +219,62 @@ fuckk:'https://i.gifer.com/410L.gif',
                 setTimeout(function() {
                   //your code to be executed after 1 second
 
-                  $('#button_coinbase').removeClass('hidden-load')
-                  animateCSS('#button_coinbase', 'fadeInLeft slow animate__delay-3s').then((message) => {
+                              $('#button_coinbase').removeClass('hidden-load')
+                                animateCSS('#button_coinbase', 'fadeInLeft slow').then((message) => {
 
-                    if(reff_paymentCancelled==true)$('section.container').css("background-color", 'rgba(41, 26, 43, 0.75)')
+                                  if(reff_paymentCancelled==true)$('section.container').css("background-color", 'rgba(41, 26, 43, 0.75)')
 
-                  // Do something after the animation
-                    console.log('we fadeIn')
-                  //var $box = $(".testBox"),// cache container to avoid dom search each iteration
-                  
-                  var $payIcons = $('.payIcon')
+                                // Do something after the animation
+                                  console.log('we fadeIn')
+                                //var $box = $(".testBox"),// cache container to avoid dom search each iteration
+                                
+                                var $payIcons = $('.payIcon')
 
-                  $('#mainLogo').removeClass('hidden-load')
-                  animateCSS('#mainLogo', 'fadeIn')
-                  var delayInMilliseconds_forLine = 100; //1 second
-                  
-                  setTimeout(function() {
-                    $('#mainLogo_Line').removeClass('hidden-load')
-                    animateCSS('#mainLogo_Line', 'fadeIn faster').then(function(){})
-                    
-                    var delayInMilliseconds_forTitle = 100;
-                    setTimeout(function() {
-                      $('.invoiceName').removeClass('hidden-load')
-                      animateCSS('.invoiceName', 'fadeIn').then(function(){
+                                $('#mainLogo').removeClass('hidden-load')
+                                animateCSS('#mainLogo', 'fadeIn')
+                                var delayInMilliseconds_forLine = 100; //1 second
+                                
+                                setTimeout(function() {
+                                  $('#mainLogo_Line').removeClass('hidden-load')
+                                  animateCSS('#mainLogo_Line', 'fadeIn faster').then(function(){})
+                                  
+                                  var delayInMilliseconds_forTitle = 100;
+                                  setTimeout(function() {
+                                    $('.invoiceName').removeClass('hidden-load')
+                                    animateCSS('.invoiceName', 'fadeIn').then(function(){
 
-                        $('.clientName').removeClass('hidden-load')
-                        animateCSS('.clientName', 'fadeIn').then(function(){
+                                      $('.clientName').removeClass('hidden-load')
+                                      animateCSS('.clientName', 'fadeIn').then(function(){
 
-                          $('.banner').removeClass('hidden-load')
-                          animateCSS('.banner', 'fadeInUp slower')
-                        })
+                                        $('.banner').removeClass('hidden-load')
+                                        animateCSS('.banner', 'fadeInUp slower')
+                                      })
 
-                      })
-                    },delayInMilliseconds_forTitle)
-
-
-                  },delayInMilliseconds_forLine)
-
-                  delay = 100; //time in ms
-                  jQuery.each($payIcons, function(index, value) {
-                    setTimeout(function() {
-                      var thisID = $(value).attr("id")
-                      console.log('loading payIcon:',value)
-                      $('#'+thisID).removeClass('hidden-load')
-                  //   $box.append('<p class="box">' + value + '</p>');
-                      console.log(thisID);
-                      animateCSS('#'+thisID, 'rotateIn animate__slow').then((message) => {
-                        // Do something after the animation
-                        console.log('we bounces')
-                      });
-                    }, index * delay)
-
-                  });
-
-                  
-                     
-                 
+                                    })
+                                  },delayInMilliseconds_forTitle)
 
 
+                                },delayInMilliseconds_forLine)
+
+                                delay = 100; //time in ms
+                                jQuery.each($payIcons, function(index, value) {
+                                  setTimeout(function() {
+                                    var thisID = $(value).attr("id")
+                                    console.log('loading payIcon:',value)
+                                    $('#'+thisID).removeClass('hidden-load')
+                                //   $box.append('<p class="box">' + value + '</p>');
+                                    console.log(thisID);
+                                    animateCSS('#'+thisID, 'rotateIn animate__slow').then((message) => {
+                                      // Do something after the animation
+                                      console.log('we bounces')
+                                    });
+                                  }, index * delay)
+
+                                });
 
 
                   })
 
-
-                  
 
 
 
@@ -389,8 +381,6 @@ $( document ).ready(function() {
     $('#duotone').css("background-size", "cover");  
     $('#duotone').removeClass('hidden-load')
     //if(reff_paymentCancelled==false)animateCSS('#duotone', 'slideInRight slow')
-
-    
   /*  $('.container').css("backdrop-filter", "blur(10px)");*/
     loadPageMain();
   //rotateIn

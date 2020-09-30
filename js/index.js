@@ -1,5 +1,5 @@
 //var animationName = 'animate shake'
-$('#body').removeClass('hidden-load ')
+$('#body').removeClass('hidden-load')
 var animationEnd = 'webkitAnimationEnd mozAnimationEnd oanimationend animationend';
 
 const animateCSS = (element, animation, prefix = 'animate__') =>
@@ -369,7 +369,7 @@ $(document).ready(function() {
               //  HOME:all_backgrounds.HOME,
                 OH:all_backgrounds.OH,
                 SAFE:all_backgrounds.SAFE,
-                OH:all_backgrounds.OH,
+                OHb:all_backgrounds.OH,
             }
             var selectedBGGroup = shuffleObject(randomProperty(shuffleObject(selectBGs))) //minimalRetro // lineart
             console.log('selectedBGGroup:', selectedBGGroup)

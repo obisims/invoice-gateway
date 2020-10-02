@@ -32,7 +32,7 @@ function handleCheckoutButtons(e) {
     var paymentMode = target.dataset.paymentMode;
     // data-payment-mode="stripe"
     console.log('button clicked', paymentMode)
-    animateCSS('body', 'fadeOut animate__slow').then((message) => {
+    animateCSS('body', 'fadeOut animate__slow').then((message) => { 
         // Do something after the animation
         // $('body').addClass("hide-opacity"); 
         //$('body').css("display", "none"); 

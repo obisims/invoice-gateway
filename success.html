@@ -3,7 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <title>Stripe Checkout Sample</title>
-    <meta name="description" content="A demo of Stripe client-only Checkout" />
+    <!--<meta name="description" content="A demo of Stripe client-only Checkout" />
+  --><meta property="description" content="Accept Direct Deposit, Credit Card and supported Cryptocurrencies" />
+  <meta property="og:description" content="Accept Direct Deposit, Credit Card and supported Cryptocurrencies" />
+  
 
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="css/normalize.css" />
@@ -38,6 +41,7 @@
           <h1>Your test payment succeeded</h1>
           <h4>Checkout Session ID: <span id="session"></span></h4>
         </div>
+        <!--
       <div class="sr-content">
         <div class="pasha-image-stack">
           <img
@@ -61,7 +65,7 @@
             height="160"
           />
         </div>
-      </div>
+      </div>-->
     </div>
     <script>
       var urlParams = new URLSearchParams(window.location.search);
